@@ -1,0 +1,16 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "Shop project with frontend, backend and MongoDB",
+  "scripts": {
+    "dev": "concurrently -n \"DB,FRONTEND,BACKEND\" \"npm run start:db\" \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:db": "mongod --dbpath=./../data/db  --quiet --logpath=./../data/mongodb.log ",
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && npm start",
+    "stop:db": "mongod --dbpath=./../data/db --shutdown",
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
